@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static '/css/bootstrap.css' %}">
+    
+    <link rel="stylesheet" href="{% static '/css/mystyle.css' %}">
+    <link rel="stylesheet" href="{% static '/css/main.css' %}">
+</head>
+<body id="bg" style=" background-image:url({%static '/image/background.jpg' %}); margin-top: 10px">
+    <div class="row">
+		<div class="col-lg-12">
+			<div class="box-element">
+
+				<a  class="btn btn-outline-dark" href="{% url 'eshopapp:admino' %}">&#x2190; Continue Shopping</a>
+
+				<br>
+				<br>
+				<table class="table">
+					<tr>
+					
+						<th>
+							<a  style="float:right; margin:5px;" class="btn btn-success" href="#">Checkout</a>
+						</th>
+					</tr>
+				</table>
+
+			</div>
+
+			<br>
+
+
+			
+			<div class="box-element">
+				<div class="cart-row">
+					
+					<div style="flex:2"><strong>Item</strong></div>
+					<div style="flex:1"><strong>Price</strong></div>
+					<div style="flex:2"> <strong>Quantity</strong></div>
+					
+
+				</div>
+				{% for i in cart_data %}
+				<div class="cart-row">
+					<div style="flex:2">{{i.Product_ID.Product_name}} </div>
+					<div style="flex:2">{{i.Product_ID.price}} </div>
+					<div style="flex:2"> 
+						<form action="{% url 'eshopapp:checkout' i.Product_ID.Product_ID %}" method="post"> {% csrf_token %}
+						<select name="price" required>
+					
+						 <option value=1> 1  </option> 
+						 <option value=2> 2 </option> 
+						 <option value=3> 3  </option> 
+						 <option value=4> 4  </option> 
+						 <option value=5> 5  </option> 
+						 <option value=6> 6  </option> 
+						 <option value=7> 7  </option> 
+						 <option value=8> 8  </option> 
+						 <option value=9> 9  </option> 
+						 <option value=10> 10  </option> 
+						</select>
+
+					</div>
+					
+					<div style="flex:2"><input type="submit" value="Checkout" class="btn btn-success"> </div> </form>
+				</div>
+				{% endfor %}
+			</div> 
+
+
+
+		</div>
+	</div>
+    </table>
+</body>
+
+</html>

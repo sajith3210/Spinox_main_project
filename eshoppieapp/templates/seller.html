@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static '/css/bootstrap.css' %}">
+    
+	<link rel="stylesheet" href="{% static '/css/mystyle.css' %}">
+    </head>
+<body id="bg" style=" background-image:url({%static '/image/background.jpg' %}); margin-top: 20px">
+    <div class="container">
+        <h1 style="text-align: center;color: cornflowerblue;text-decoration: underline;">Add seller</h1>
+    <form action="#" method="POST">
+        <table >
+        {% csrf_token %}
+        {{sel.as_table}}
+        </table> <br>
+        <input  class="btn btn-danger btn-lg" type="submit" value="add seller" style="margin-left: 90px;"> {{msg}}
+    </form>
+        </div>
+</body>
+</html>

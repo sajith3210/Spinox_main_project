@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ <link rel="stylesheet" href="{% static '/css/bootstrap.css' %}">
+    
+ <link rel="stylesheet" href="{% static '/css/mystyle.css' %}">
+</head>
+<body id="bg" style=" background-image:url({%static '/image/background.jpg' %}); margin-top: 10px">
+    <div class="container">
+        <div class="jumbotron">
+    <form action="{% url 'eshopapp:product' %}" method="POST" enctype="multipart/form-data">
+        <table>
+        {% csrf_token %}
+        {{prod.label}}
+        {{prod.label.category}}
+       
+        {{prod.as_table}}
+            </table> <br>
+        <input class="btn btn-success" type="submit" value="add product" style="margin-left: 100px"> {{msg}}
+
+    </form>
+        </div>
+        </div>
+</body>
+</html>

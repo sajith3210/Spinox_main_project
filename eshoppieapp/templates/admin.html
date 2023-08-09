@@ -1,0 +1,27 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+        
+          
+        <div class="row">
+          {% for product in products %}
+          <div class="col-lg-4">
+            <img class="thumbnail" src="{{product.imageURL}}">
+            <div class="box-element product">
+              <h6><strong>{{product.name}}</strong></h6>
+              <hr>
+      <form action="{% url 'eshopapp:addcart' product.Product_ID %}" method="post">{% csrf_token %}
+              <input type="submit" value="Add to Cart" class="btn btn-outline-secondary add-btn update-cart">{{add}}
+            
+              
+              <h4 style="display: inline-block; float: right"><strong>${{product.price}}</strong></h4>
+      
+            </div>
+          </div> </form>
+          {% endfor %}
+        </div> 
+       
+      
+        {% endblock content %}        
+ 

@@ -1,0 +1,14 @@
+<html>
+    <head>
+
+    </head>
+
+    <body>
+       <form method="POST" action="#">
+           {% csrf_token %}
+            {{ind.as_p}}
+           <input type="submit" value="Login">
+
+       </form> 
+    </body>
+    </html>

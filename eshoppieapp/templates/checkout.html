@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ <link rel="stylesheet" href="{% static '/css/bootstrap.css' %}">
+    
+ <link rel="stylesheet" href="{% static '/css/mystyle.css' %}">
+</head>
+
+<body id="bg" style=" background-image:url({%static '/image/background.jpg' %}); margin-top: 10px">
+    <form action="" method="POST">
+       
+        {% csrf_token %}
+       
+        {% for o in ord %}  <table>
+        <tr>
+          <td> {{o.label}} 
+           {{o}} </td>
+        </tr>
+        {% endfor %}
+        </table>
+        
+        <input type="submit" value="Buy product" class="btn btn-primary btn-lg">
+    </form>
+</body>
+</html> 

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static '/css/bootstrap.css' %}">
+    
+	<link rel="stylesheet" href="{% static '/css/mystyle.css' %}">
+    </head>
+<body id="bg" style=" background-image:url({%static '/image/background.jpg' %}); margin-top: 20px">
+    <!--label for="category_name">Category name </label>
+    <input type="text" id="category_name" value="#" name=" category_name"> <br> <br>
+    <label for="category_description">Category description </label>
+    <input type="text" id="category_description" value="#" name="category_description"-->
+   <div class="container">
+       <h1 style="text-align: center;color: cornflowerblue;text-decoration: underline;">Add Category</h1>
+    <form action="{% url 'eshopapp:category' %}" method="POST">
+        <table>
+        {% csrf_token %}
+        {{cat.as_table}}
+        </table> <br>
+        <input class="btn btn-success" type="submit" value="Add category" style="margin-left: 160px;">{{msg}}
+    </form>
+       </div>
+</body>
+</html>
